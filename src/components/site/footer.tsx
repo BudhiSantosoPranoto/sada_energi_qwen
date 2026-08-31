@@ -25,7 +25,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center">
               <img
-                src="/logo-sada.svg"
+                src="/logo-sada.png"
                 alt="Logo Sada Energi"
                 className="h-12 w-auto"
               />
