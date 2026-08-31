@@ -13,7 +13,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 icons: {
   icon: "/logo-sada.png",
-},
+};
 
 const inter = Inter({
   variable: "--font-inter",
