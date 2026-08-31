@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Sun, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { navLinks, waLink, siteConfig } from "@/lib/site-config";
+import { navLinks, waLink } from "@/lib/site-config";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,19 +35,13 @@ export function Navbar() {
     >
       <div className="container-brand flex h-16 items-center justify-between gap-4 lg:h-20">
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-2.5 group">
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft transition-transform group-hover:scale-105">
-            <Sun className="h-5 w-5" strokeWidth={2.5} />
-            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-background" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-semibold text-foreground">
-              {siteConfig.brand.name}
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Solar Residential
-            </span>
-          </span>
+        <a href="#top" className="flex items-center group">
+          {/* TODO: pastikan file logo final bernama logo-sada.svg di public/ */}
+          <img
+            src="/logo-sada.svg"
+            alt="Logo Sada Energi"
+            className="h-9 w-auto lg:h-11"
+          />
         </a>
 
         {/* Desktop nav */}
@@ -67,7 +61,7 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="#simulasi"
-            className="text-sm font-semibold text-primary hover:text-brand-green-700 transition-colors"
+            className="text-sm font-semibold text-primary hover:bg-transparent hover:text-brand-green-700 transition-colors"
           >
             Hitung Kebutuhan
           </a>
@@ -101,10 +95,7 @@ export function Navbar() {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
       >
-        <div
-          className="absolute inset-0 bg-foreground/30 backdrop-blur-sm"
-          onClick={() => setOpen(false)}
-        />
+        <div className="absolute inset-0 bg-foreground/30 backdrop-blur-sm" onClick={() => setOpen(false)} />
         <div
           className={cn(
             "absolute inset-x-0 top-0 origin-top bg-background px-5 py-6 shadow-card transition-transform duration-300",
