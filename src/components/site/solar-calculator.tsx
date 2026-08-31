@@ -16,6 +16,7 @@ import {
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 import { waLink } from "@/lib/site-config";
+import { EmotionalReframing } from "./emotional-reframing";
 
 // PLN tariff assumptions (IDR per kWh) — used only for cost estimation
 const PLN_TARIFF_PER_KWH = 1467; // R1 tarif non-subsidi (placeholder)
@@ -362,36 +363,19 @@ export function SolarCalculator() {
                     hybrid).
                   </p>
                 </div>
-
-                {/* CTA */}
-                <a
-                  href={waLink(
-                    `Halo, saya sudah mencoba simulasi di website. Hasil estimasi: kapasitas ±${recommendedKwp.toFixed(
-                      1
-                    )} kWp, ${panelCount} panel, area atap ±${areaM2} m². Saya ingin analisa lebih akurat untuk rumah saya.`
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-accent hover:text-foreground hover:-translate-y-0.5"
-                >
-                  Dapatkan Analisa Lebih Akurat — Gratis
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-
-                {/* Honest disclaimer */}
-                <div className="flex items-start gap-2 rounded-xl bg-white/5 p-3 text-[11px] leading-relaxed text-white/70">
-                  <ShieldAlert className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-                  <span>
-                    Simulasi ini menggunakan asumsi tarif PLN{" "}
-                    <strong>Rp {fmtIDR(PLN_TARIFF_PER_KWH)}/kWh</strong> dan
-                    produksi rata-rata <strong>{SOLAR_PROD_PER_KWP_PER_DAY} kWh/kWp/hari</strong>{" "}
-                    di Indonesia. Angka aktual dapat berbeda.
-                  </span>
-                </div>
               </div>
             </div>
           </Reveal>
         </div>
+
+        {/* Emotional Reframing Section */}
+        <EmotionalReframing
+          tagihan={tagihan}
+          monthlySaving={potentialMonthlySaving}
+          yearlySaving={potentialAnnualSaving}
+          lokasi={lokasi}
+          jenisBangunan={jenisBangunan}
+        />
       </div>
     </section>
   );
