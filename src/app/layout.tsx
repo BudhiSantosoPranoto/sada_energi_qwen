@@ -11,6 +11,10 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+icons: {
+  icon: "/logo-sada.png",
+},
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
