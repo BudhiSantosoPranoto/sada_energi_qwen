@@ -23,18 +23,12 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft">
-                <Sun className="h-5 w-5" strokeWidth={2.5} />
-              </span>
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-base font-semibold text-white">
-                  {siteConfig.brand.name}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-white/60">
-                  Solar Residential
-                </span>
-              </div>
+            <div className="flex items-center">
+              <img
+                src="/logo-sada.svg"
+                alt="Logo Sada Energi"
+                className="h-12 w-auto"
+              />
             </div>
 
             <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70">
