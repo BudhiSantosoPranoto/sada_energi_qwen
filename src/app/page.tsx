@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/site/navbar";
 import { Hero } from "@/components/site/hero";
+import { AESITrustBar } from "@/components/site/aesi-trust-bar";
 import { ProblemSection } from "@/components/site/problem-section";
 import { SolarIntro } from "@/components/site/solar-intro";
 import { SuitabilityCheck } from "@/components/site/suitability-check";
@@ -21,6 +22,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <AESITrustBar />
         <ProblemSection />
         <SolarIntro />
         <SuitabilityCheck />

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Check, MessageCircle, ChevronRight, Star } from "lucide-react";
-import { waLink } from "@/lib/site-config";
+import { waLink, siteConfig } from "@/lib/site-config";
 import { Reveal } from "./reveal";
 import { SecondaryButton } from "./buttons";
 
@@ -65,9 +65,7 @@ export function Hero() {
             </h1>
 
             <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Manfaatkan energi matahari untuk membantu memenuhi kebutuhan
-              listrik rumah dan membangun sistem energi yang lebih efisien untuk
-              jangka panjang.
+              Cuaca panas khas Tegal & Slawi = potensi panen energi surya maksimal sepanjang tahun. Manfaatkan energi matahari untuk membantu memenuhi kebutuhan listrik rumah dan membangun sistem energi yang lebih efisien untuk jangka panjang.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">

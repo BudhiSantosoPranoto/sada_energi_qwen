@@ -36,16 +36,43 @@ export const siteConfig = {
     phoneSecondary: "+62 822 2999 9805",
     address:
       "Jl. HOS. Cokroaminoto, Sapphire Residence Slawi Blok C15, Kel. Slawi Wetan, Kec. Slawi, Kab. Tegal, Jawa Tengah 52411",
-    areaLayanan: "Jabodetabek, Bandung, Surabaya, dan sekitarnya",
+    areaLayanan: "Tegal, Slawi, Pantura Jawa Tengah, dan sekitarnya",
     jamOperasional: "Senin–Sabtu, 09.00–18.00 WIB",
   },
 
   // Component partner brands — replace with actual brands used by the business
   components: {
-    panels: "Tier-1 Monocrystalline",
-    inverter: "String & Hybrid Inverter",
-    battery: "Lithium Iron Phosphate (LiFePO4)",
-    mounting: "Aluminium Anti-Karat",
+    panels: "Monocrystalline 620 Wp",
+    inverter: "LIVOLTEK Hybrid Inverter",
+    battery: "LIVOLTEK LFP dengan BMS",
+    mounting: "Mounting Rail Aluminium",
+  },
+
+  // AESI affiliation
+  aesi: {
+    name: "Asosiasi Energi Surya Indonesia",
+    shortName: "AESI",
+    link: "https://aesi.or.id",
+    logo: "/logo-aesi.svg",
+    description: "Anggota Resmi Asosiasi Energi Surya Indonesia (AESI)",
+  },
+
+  // Warranty info
+  warranty: {
+    maintenance: "1 tahun",
+    panel: "12 tahun garansi produk, hingga 25 tahun performa",
+    inverter: "5 tahun",
+    battery: "5 tahun",
+    contractNote: "Semua garansi tertuang tertulis dalam kontrak.",
+  },
+
+  // Payment scheme
+  payment: {
+    dp: "50%",
+    delivery: "45%",
+    completion: "5%",
+    note: "DP 50% | 45% saat barang dikirim | 5% setelah instalasi",
+    trustNote: "Setiap instalasi termasuk pemenuhan SLO & NIDI serta kajian teknis lengkap.",
   },
 } as const;
 

@@ -1,7 +1,7 @@
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 import { ArrowRight } from "lucide-react";
-import { waLink } from "@/lib/site-config";
+import { waLink, siteConfig } from "@/lib/site-config";
 
 const steps = [
   {
@@ -137,6 +137,17 @@ export function CustomerJourney() {
             </ol>
           </div>
         </div>
+
+        {/* Payment scheme & trust note */}
+        <Reveal delay={200}>
+          <div className="mt-12 rounded-3xl border border-primary/20 bg-gradient-to-br from-primary to-brand-green-700 p-6 text-center shadow-card lg:p-8">
+            <h3 className="font-display text-lg font-semibold text-white">
+              Skema Pembayaran Bertahap
+            </h3>
+            <p className="mt-2 text-base font-bold text-accent">{siteConfig.payment.note}</p>
+            <p className="mt-3 text-sm text-white/80">{siteConfig.payment.trustNote}</p>
+          </div>
+        </Reveal>
 
         <Reveal delay={200} className="mt-12 flex justify-center">
           <a
