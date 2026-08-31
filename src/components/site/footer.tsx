@@ -98,10 +98,10 @@ export function Footer() {
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{siteConfig.contact.phoneSecondary}</span>
               </li>
-              <li className="flex items-start gap-2.5">
+              /*<li className="flex items-start gap-2.5">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{siteConfig.contact.email}</span>
-              </li>
+              </li>*/
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>{siteConfig.contact.address}</span>
