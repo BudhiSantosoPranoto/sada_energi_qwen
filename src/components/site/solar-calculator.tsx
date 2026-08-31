@@ -46,6 +46,20 @@ const roofOptions = [
   { value: "other", label: "Lainnya / Belum Tahu" },
 ];
 
+const locationOptions = [
+  { value: "Tegal", label: "Tegal" },
+  { value: "Slawi", label: "Slawi" },
+  { value: "Brebes", label: "Brebes" },
+  { value: "Pemalang", label: "Pemalang" },
+  { value: "Lainnya", label: "Lainnya" },
+];
+
+const buildingOptions = [
+  { value: "Rumah", label: "Rumah" },
+  { value: "Komersial", label: "Komersial" },
+  { value: "Industri", label: "Industri" },
+];
+
 function fmtIDR(n: number, decimals = 0) {
   return n.toLocaleString("id-ID", {
     minimumFractionDigits: decimals,
@@ -55,21 +69,20 @@ function fmtIDR(n: number, decimals = 0) {
 
 export function SolarCalculator() {
   const [daya, setDaya] = useState<Daya>("1300");
-  const [tagihan, setTagihan] = useState<number>(500000);
-  const [konsumsi, setKonsumsi] = useState<number>(0); // kWh/bulan, optional override
-  const [lokasi, setLokasi] = useState<string>("Jabodetabek");
+  const [tagihan, setTagihan] = useState<number>(1500000);
+  const [konsumsi, setKonsumsi] = useState<number>(0);
+  const [lokasi, setLokasi] = useState<string>("Tegal");
   const [atap, setAtap] = useState<string>("tile");
+  const [jenisBangunan, setJenisBangunan] = useState<string>("Rumah");
 
   // Derived
   const monthlyKWh = useMemo(() => {
     if (konsumsi && konsumsi > 0) return konsumsi;
     if (tagihan > 0) return tagihan / PLN_TARIFF_PER_KWH;
     const dayaNum = parseInt(daya, 10);
-    // fallback assumption
     return dayaNum * 6;
   }, [konsumsi, tagihan, daya]);
 
-  // Recommend kWp = ~80% of monthly average daily kWh
   const dailyKWh = monthlyKWh / 30;
   const recommendedKwp = useMemo(() => {
     const kwp = (dailyKWh * 0.8) / (SOLAR_PROD_PER_KWP_PER_DAY * SYSTEM_EFFICIENCY);
@@ -89,7 +102,11 @@ export function SolarCalculator() {
   const dailyProduction = recommendedKwp * SOLAR_PROD_PER_KWP_PER_DAY * SYSTEM_EFFICIENCY;
   const monthlyProduction = dailyProduction * 30;
   const monthlyOffset = Math.min(monthlyProduction / monthlyKWh, 1);
-  const potentialMonthlySaving = monthlyProduction * PLN_TARIFF_PER_KWH;
+  
+  // NEW: Simple savings calculation based on user request (50% of bill)
+  const potentialMonthlySaving = tagihan * 0.5;
+  const potentialAnnualSaving = potentialMonthlySaving * 12;
+  const afterSolarBill = tagihan - potentialMonthlySaving;
 
   const results = [
     {
@@ -154,85 +171,109 @@ export function SolarCalculator() {
               </p>
 
               <div className="mt-6 flex flex-col gap-5">
-                <Field label="Daya PLN terpasang" icon={Zap}>
-                  <select
-                    value={daya}
-                    onChange={(e) => setDaya(e.target.value as Daya)}
-                    className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  >
-                    {dayaOptions.map((d) => (
-                      <option key={d.value} value={d.value}>
-                        {d.label}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-
-                <Field
-                  label="Estimasi tagihan listrik bulanan"
-                  icon={Receipt}
-                  hint="Opsional — gunakan jika tahu"
-                >
-                  <div className="relative">
-                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm font-medium text-muted-foreground">
-                      Rp
-                    </span>
+                {/* Slider Tagihan Bulanan */}
+                <Field label="Berapa tagihan listrik bulanan Anda?" icon={Receipt}>
+                  <div className="py-2">
                     <input
-                      type="number"
-                      min={0}
-                      step={50000}
-                      value={tagihan || ""}
-                      onChange={(e) =>
-                        setTagihan(Math.max(0, Number(e.target.value)))
-                      }
-                      placeholder="500.000"
-                      className="w-full rounded-xl border border-border bg-background py-3 pl-10 pr-4 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      type="range"
+                      min={300000}
+                      max={5000000}
+                      step={100000}
+                      value={tagihan}
+                      onChange={(e) => setTagihan(Number(e.target.value))}
+                      className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
                     />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                      <span>Rp 300.000</span>
+                      <span>Rp 5.000.000</span>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <span className="text-3xl font-bold text-primary">
+                        Rp {fmtIDR(tagihan)}
+                      </span>
+                    </div>
                   </div>
                 </Field>
 
-                <Field
-                  label="Konsumsi listrik (kWh/bulan)"
-                  icon={AreaChart}
-                  hint="Isi jika sudah tahu dari tagihan PLN"
-                >
-                  <input
-                    type="number"
-                    min={0}
-                    step={50}
-                    value={konsumsi || ""}
-                    onChange={(e) =>
-                      setKonsumsi(Math.max(0, Number(e.target.value)))
-                    }
-                    placeholder="Biarkan kosong untuk estimasi otomatis"
-                    className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  />
-                </Field>
-
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  <Field label="Lokasi properti" icon={MapPin}>
-                    <input
-                      type="text"
+                  <Field label="Lokasi" icon={MapPin}>
+                    <select
                       value={lokasi}
                       onChange={(e) => setLokasi(e.target.value)}
-                      placeholder="Jabodetabek"
-                      className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    />
-                  </Field>
-
-                  <Field label="Jenis atap" icon={Home}>
-                    <select
-                      value={atap}
-                      onChange={(e) => setAtap(e.target.value)}
                       className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                     >
-                      {roofOptions.map((r) => (
-                        <option key={r.value} value={r.value}>
-                          {r.label}
+                      {locationOptions.map((l) => (
+                        <option key={l.value} value={l.value}>
+                          {l.label}
                         </option>
                       ))}
                     </select>
                   </Field>
+
+                  <Field label="Jenis Bangunan" icon={Home}>
+                    <select
+                      value={jenisBangunan}
+                      onChange={(e) => setJenisBangunan(e.target.value)}
+                      className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    >
+                      {buildingOptions.map((b) => (
+                        <option key={b.value} value={b.value}>
+                          {b.label}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                </div>
+
+                {/* Visual Before/After */}
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-center">
+                    <p className="text-xs font-medium text-red-700 uppercase tracking-wide">
+                      SEBELUM
+                    </p>
+                    <p className="text-[10px] text-red-600 mt-1">
+                      Tagihan PLN Anda Sekarang
+                    </p>
+                    <p className="text-xl font-bold text-red-800 mt-2">
+                      Rp {fmtIDR(tagihan)}
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4 text-center">
+                    <p className="text-xs font-medium text-primary uppercase tracking-wide">
+                      SESUDAH
+                    </p>
+                    <p className="text-[10px] text-primary/70 mt-1">
+                      Setelah Pakai PLTS
+                    </p>
+                    <p className="text-xl font-bold text-primary mt-2">
+                      Rp {fmtIDR(afterSolarBill)}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-[10px] text-muted-foreground text-center -mt-2">
+                  Ilustrasi penghematan dengan PLTS On-Grid. Hasil aktual bervariasi tergantung konsumsi & cuaca.
+                </p>
+
+                {/* Penghematan Real-time */}
+                <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 p-4 border border-primary/20">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xs text-muted-foreground">
+                        Estimasi Penghematan Bulanan
+                      </p>
+                      <p className="text-lg font-bold text-primary">
+                        Rp {fmtIDR(potentialMonthlySaving)}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">
+                        Estimasi Penghematan Tahunan
+                      </p>
+                      <p className="text-lg font-bold text-primary">
+                        Rp {fmtIDR(potentialAnnualSaving)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
