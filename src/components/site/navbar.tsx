@@ -33,14 +33,14 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="container-brand flex h-20 items-center justify-between gap-4 lg:h-24">
+      <div className="container-brand flex h-24 items-center justify-between gap-4 lg:h-30">
         {/* Logo */}
         <a href="#top" className="flex items-center group">
           {/* TODO: pastikan file logo final bernama logo-sada.png di public/ */}
           <img
             src="/logo-sada.png"
             alt="Logo Sada Energi"
-            className="h-14 w-auto lg:h-20"
+            className="h-24 w-auto lg:h-30"
           />
         </a>
 
@@ -91,7 +91,7 @@ export function Navbar() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "lg:hidden fixed inset-0 top-20 z-40 transition-all duration-300",
+          "lg:hidden fixed inset-0 top-30 z-40 transition-all duration-300",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
       >
