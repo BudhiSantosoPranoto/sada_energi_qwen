@@ -6,6 +6,6 @@
   <!-- SADA text in orange -->
   <text x="30" y="42" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#F47B20">SADA</text>
   
-  <!-- ENERGI text in gray (for dark backgrounds) -->
-  <text x="115" y="42" font-family="Arial, sans-serif" font-size="24" font-weight="500" fill="#9AA0A6">ENERGI</text>
+  <!-- ENERGI text in charcoal (for light backgrounds) -->
+  <text x="115" y="42" font-family="Arial, sans-serif" font-size="24" font-weight="500" fill="#0B0B0B">ENERGI</text>
 </svg>

@@ -44,86 +44,86 @@
 }
 
 :root {
-  /* === SOLAR RESIDENTIAL BRAND PALETTE === */
+  /* === SADA ENERGI BRAND PALETTE === */
   --radius: 1rem;
 
-  /* Background — Warm White / Off White */
-  --background: #FBF8F1;
-  --foreground: #1F2A2E;
+  /* Background — Warm White (HSL: 45 29% 97%) */
+  --background: hsl(45, 29%, 97%);
+  --foreground: hsl(0, 0%, 10%);
 
   --card: #FFFFFF;
-  --card-foreground: #1F2A2E;
+  --card-foreground: hsl(0, 0%, 10%);
 
   --popover: #FFFFFF;
-  --popover-foreground: #1F2A2E;
+  --popover-foreground: hsl(0, 0%, 10%);
 
-  /* Primary — Deep Green */
-  --primary: #14532D;
-  --primary-foreground: #FBF8F1;
+  /* Primary — Orange #F47B20 (HSL: 26 91% 54%) */
+  --primary: hsl(26, 91%, 54%);
+  --primary-foreground: hsl(0, 0%, 100%);
 
-  /* Secondary — Soft Sand */
-  --secondary: #F0EBE0;
-  --secondary-foreground: #1F2A2E;
+  /* Secondary — Gray #9AA0A6 (HSL: 210 6% 63%) */
+  --secondary: hsl(210, 6%, 63%);
+  --secondary-foreground: hsl(0, 0%, 100%);
 
-  --muted: #F4F0E6;
-  --muted-foreground: #5B6B63;
+  --muted: hsl(45, 15%, 90%);
+  --muted-foreground: hsl(0, 0%, 40%);
 
-  /* Accent — Solar Yellow / Warm Gold */
-  --accent: #F4B41A;
-  --accent-foreground: #1F2A2E;
+  /* Accent — Solar Orange */
+  --accent: hsl(26, 91%, 54%);
+  --accent-foreground: hsl(0, 0%, 100%);
 
   --destructive: #C0392B;
 
-  --border: #E5DFD0;
-  --input: #E5DFD0;
-  --ring: #14532D;
+  --border: hsl(45, 15%, 85%);
+  --input: hsl(45, 15%, 85%);
+  --ring: hsl(26, 91%, 54%);
 
-  --chart-1: #14532D;
-  --chart-2: #2D6A4F;
-  --chart-3: #F4B41A;
-  --chart-4: #B58B2A;
-  --chart-5: #6B7F70;
+  --chart-1: hsl(26, 91%, 54%);
+  --chart-2: hsl(26, 80%, 45%);
+  --chart-3: hsl(45, 90%, 50%);
+  --chart-4: hsl(35, 85%, 45%);
+  --chart-5: hsl(210, 6%, 50%);
 
-  --sidebar: #FBF8F1;
-  --sidebar-foreground: #1F2A2E;
-  --sidebar-primary: #14532D;
-  --sidebar-primary-foreground: #FBF8F1;
-  --sidebar-accent: #F0EBE0;
-  --sidebar-accent-foreground: #1F2A2E;
-  --sidebar-border: #E5DFD0;
-  --sidebar-ring: #14532D;
+  --sidebar: hsl(45, 29%, 97%);
+  --sidebar-foreground: hsl(0, 0%, 10%);
+  --sidebar-primary: hsl(26, 91%, 54%);
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: hsl(45, 15%, 90%);
+  --sidebar-accent-foreground: hsl(0, 0%, 10%);
+  --sidebar-border: hsl(45, 15%, 85%);
+  --sidebar-ring: hsl(26, 91%, 54%);
 
   /* Brand extension tokens */
-  --brand-green-50: #ECF5EE;
-  --brand-green-100: #D2E8D7;
-  --brand-green-700: #2D6A4F;
-  --brand-green-900: #0F3D23;
-  --brand-gold-50: #FDF6E3;
-  --brand-gold-100: #FAE9B5;
-  --brand-gold-700: #946811;
-  --brand-cream: #FBF8F1;
-  --brand-charcoal: #1F2A2E;
+  --brand-orange-50: hsl(26, 91%, 95%);
+  --brand-orange-100: hsl(26, 91%, 85%);
+  --brand-orange-700: hsl(26, 80%, 45%);
+  --brand-orange-900: hsl(26, 70%, 35%);
+  --brand-gold-50: hsl(45, 90%, 95%);
+  --brand-gold-100: hsl(45, 90%, 85%);
+  --brand-gold-700: hsl(35, 85%, 45%);
+  --brand-cream: hsl(45, 29%, 97%);
+  --brand-charcoal: hsl(0, 0%, 10%);
 }
 
 .dark {
-  --background: #0F1A14;
-  --foreground: #FBF8F1;
-  --card: #142922;
-  --card-foreground: #FBF8F1;
-  --popover: #142922;
-  --popover-foreground: #FBF8F1;
-  --primary: #2D6A4F;
-  --primary-foreground: #FBF8F1;
-  --secondary: #1F2A2E;
-  --secondary-foreground: #FBF8F1;
-  --muted: #1F2A2E;
-  --muted-foreground: #B0BEB5;
-  --accent: #F4B41A;
-  --accent-foreground: #1F2A2E;
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 8%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 8%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(26, 91%, 54%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 6%, 20%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 70%);
+  --accent: hsl(26, 91%, 54%);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: #E74C3C;
-  --border: #2A3D34;
-  --input: #2A3D34;
-  --ring: #2D6A4F;
+  --border: hsl(0, 0%, 15%);
+  --input: hsl(0, 0%, 15%);
+  --ring: hsl(26, 91%, 54%);
 }
 
 @layer base {

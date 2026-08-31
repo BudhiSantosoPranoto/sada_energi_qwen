@@ -5,12 +5,12 @@
  */
 export const siteConfig = {
   brand: {
-    name: "Mentari Energi",
+    name: "Sada Energi",
     legalName: "PT Energi Cahaya Matahari",
     tagline: "Partner Energi Surya untuk Rumah Anda",
     shortDescription:
       "Kami membantu pemilik rumah merancang sistem PLTS yang sesuai dengan kebutuhan energi, kondisi properti, dan tujuan jangka panjang mereka.",
-    domain: "https://mentarienergi.id",
+    domain: "https://sadaenergi.com",
   },
 
   // Replace with the real WhatsApp number (international format, no +)
@@ -30,11 +30,12 @@ export const siteConfig = {
 
   // Contact info
   contact: {
-    email: "halo@mentarienergi.id",
+    // TODO: Replace with real email
+    email: "halo@sadaenergi.com",
     phoneDisplay: "+62 858 8881 8055",
     phoneSecondary: "+62 822 2999 9805",
     address:
-      "Jalan Raya Selatan Banjaran, RT 006/RW 001, Desa Grobog Kulon, Kecamatan Pangkah, Slawi, Kabupaten Tegal - Jawa Tengah",
+      "Jl. HOS. Cokroaminoto, Sapphire Residence Slawi Blok C15, Kel. Slawi Wetan, Kec. Slawi, Kab. Tegal, Jawa Tengah 52411",
     areaLayanan: "Jabodetabek, Bandung, Surabaya, dan sekitarnya",
     jamOperasional: "Senin–Sabtu, 09.00–18.00 WIB",
   },
