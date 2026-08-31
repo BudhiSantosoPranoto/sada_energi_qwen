@@ -34,11 +34,8 @@ export const siteConfig = {
     email: "halo@sadaenergi.com",
     phoneDisplay: "+62 858 8881 8055",
     phoneSecondary: "+62 822 2999 9805",
-    address: [
-      "Jl. HOS. Cokroaminoto, Sapphire Residence Slawi Blok C15," 
-      "Kel. Slawi Wetan," 
-      "Kec. Slawi,"
-      "Kab. Tegal, Jawa Tengah 52411"],
+    address: 
+      "Jl. HOS. Cokroaminoto, Sapphire Residence Slawi Blok C15, Kel. Slawi Wetan, Kec. Slawi, Kab. Tegal, Jawa Tengah 52411",
     areaLayanan: "Tegal, Slawi, Pantura Jawa Tengah, dan sekitarnya",
     jamOperasional: "Senin–Sabtu, 09.00–18.00 WIB",
   },
