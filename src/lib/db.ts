@@ -1,13 +1,8 @@
-import { PrismaClient } from '@prisma/client'
+// Neutralized: No database connection required
+// Original Prisma client removed to allow build without DATABASE_URL
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
+export const db = undefined
+
+export function getDb() {
+  return undefined
 }
-
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: ['query'],
-  })
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
