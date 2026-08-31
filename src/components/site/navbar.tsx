@@ -36,9 +36,9 @@ export function Navbar() {
       <div className="container-brand flex h-16 items-center justify-between gap-4 lg:h-20">
         {/* Logo */}
         <a href="#top" className="flex items-center group">
-          {/* TODO: pastikan file logo final bernama logo-sada.svg di public/ */}
+          {/* TODO: pastikan file logo final bernama logo-sada-light.svg di public/ */}
           <img
-            src="/logo-sada.svg"
+            src="/logo-sada-light.svg"
             alt="Logo Sada Energi"
             className="h-9 w-auto lg:h-11"
           />
