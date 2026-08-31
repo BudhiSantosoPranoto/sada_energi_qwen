@@ -27,7 +27,7 @@ export function Footer() {
               <img
                 src="/logo-sada.png"
                 alt="Logo Sada Energi"
-                className="h-12 w-auto"
+                className="h-24 w-auto"
               />
             </div>
 
