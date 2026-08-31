@@ -40,7 +40,7 @@ export function Navbar() {
           <img
             src="/logo-sada.png"
             alt="Logo Sada Energi"
-            className="h-9 w-auto lg:h-11"
+            className="h-12 w-auto lg:h-16"
           />
         </a>
 
