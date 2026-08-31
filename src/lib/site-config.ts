@@ -35,7 +35,12 @@ export const siteConfig = {
     phoneDisplay: "+62 858 8881 8055",
     phoneSecondary: "+62 822 2999 9805",
     address: 
-      "Sapphire Residence Slawi Blok C15,\nJl. HOS. Cokroaminoto,\nKel. Slawi Wetan,\nKec. Slawi,\nKab. Tegal, Jawa Tengah 52411",
+      `Sapphire Residence Slawi Blok C15,
+      Jl. HOS. Cokroaminoto,
+      Kel. Slawi Wetan,
+      Kec. Slawi,
+      Kab. Tegal,
+      Jawa Tengah 52411`,
     areaLayanan: "Tegal, Slawi, Pantura Jawa Tengah, dan sekitarnya",
     jamOperasional: "Senin–Sabtu, 09.00–18.00 WIB",
   },
