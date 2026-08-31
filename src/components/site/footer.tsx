@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 import { siteConfig, waLink, navLinks } from "@/lib/site-config";
 
 const resources = [
